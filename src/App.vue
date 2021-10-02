@@ -1,9 +1,13 @@
 <template>
-   <h1>Olá mundos</h1>
+   <Container/>
 </template>
 
 <script>
+  import Container from './components/container.vue'
   export default {
-    name: 'App'
+    name: 'App',
+    components: {
+      Container
+    }
   }
 </script>
