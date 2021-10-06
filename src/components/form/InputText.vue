@@ -49,14 +49,14 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="progress" style="height: 25px;width:300px;margin-top:30px;">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;background-color: rgb(72, 54, 152)" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" style="width: 50%;background-color: rgb(72, 54, 152);" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <h6 style="margin-top:30px;font-size:20px;" for="CPF">1 de 2</h6>
                 </div>
             </div>
-            <button style="display:flex;margin-bottom:30px;width:400px;text-align: center;" type="submit" class="btn btn-primary">Próximo</button>
+            <button type="submit" class="btn">PRÓXIMO</button>
         </form>
     </div>
 </template>
@@ -126,6 +126,7 @@
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(72, 54, 152, 0.6);
     }
     h6{font-family: 'Comfortaa', cursive;color:#483698;}
+    button{display:flex;margin-bottom:30px;width:400px;text-align: center;background-color:rgb(72, 54, 152);color:#fff;}
     
 </style>
 
