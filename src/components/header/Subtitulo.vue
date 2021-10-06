@@ -17,7 +17,7 @@ export default{
 <style>
     .tituloFonte{
         display: flex;
-        margin: 5% 0px 0px 8%;
+        margin: 3% 0px 0px 5%;
         font-size: 21px;
         font-family: 'Open Sans', sans-serif;
         font-weight:800;

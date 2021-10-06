@@ -1,6 +1,6 @@
 <template>
     <div >
-        <h2 class="subFonte">{{ nome }}</h2>
+        <h2 class="titulo">{{ nome }}</h2>
     </div>
 </template>
 
@@ -15,12 +15,18 @@ export default{
 }
 </script>
 <style>
-    .subFonte{
+    .titulo{
         display: flex;
         color: #483698;
         font-size: 35px;
-        margin: 5% 0px 0px 8%;
+        margin: 5% 0px 0px 5%;
         font-family: 'Comfortaa', cursive;
         font-weight:800;
+    }
+    @media (max-width: 600px)
+    {
+        .titulo{
+            font-size:30px;
+        }
     }
 </style>

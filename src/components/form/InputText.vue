@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <form style="margin: 5% 0px 0px 8%;">
+    <div class="row">
+        
+        <form style="margin: 5% 0px 0px 5%;" >
             <div class="form-group">
                 <label class="tituloInput" for="name">Nome Completo*</label>
                 <input 
@@ -32,33 +33,40 @@
                 v-on:keypress="NumbersOnly"
                 placeholder="(00)0 0000-0000">
             </div>
-            <div class="row">
-                <div class="col-md-4">
+              <div class="form-row">
+                <div class="form-group col-md-6">
                     <label class="tituloInput" for="CPF">Estado*</label>
-                    <select type="text" class="form-control inputSelect" placeholder="First name">
-                        <option>...</option>
-                    </select>
+                        <select type="text" class="form-control inputSelect" placeholder="Last name">
+
+                        </select>
                 </div>
-                <div class="col-md-4">
+                <div class="form-group col-md-6">
                     <label class="tituloInput" for="CPF">Cidade*</label>
-                    <select type="text" class="form-control inputSelect" placeholder="Last name">
+                     <select type="text" class="form-control inputSelect" placeholder="Last name">
 
                     </select>
                 </div>
             </div>
-            <div class="row">
+
+            <div class="row ">
                 <div class="col-md-4">
-                    <div class="progress" style="height: 25px;width:300px;margin-top:30px;">
-                        <div class="progress-bar" role="progressbar" style="width: 50%;background-color: rgb(72, 54, 152);" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress" style="height: 25px;margin-top:30px;">
+                        <div class="progress-bar" role="progressbar"
+                         style="width: 50%;background-color: rgb(72, 54, 152);" 
+                         aria-valuenow="25" aria-valuemin="0" 
+                         aria-valuemax="100">
+                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h6 style="margin-top:30px;font-size:20px;" for="CPF">1 de 2</h6>
+                    <h6 class="contagem" for="CPF">1 de 2</h6>
                 </div>
             </div>
             <button type="submit" class="btn">PRÓXIMO</button>
         </form>
+    <img src="../../assets/desktop-pagina-1.png" style="width:400px;height:400px;" class="rounded " >
     </div>
+        
 </template>
 
 <script>
@@ -112,21 +120,77 @@
     .inputName{
         width: 400px;
     }
+
     .inputNumber{
         width: 300px;
     }
+
     .inputSelect{
-        width: 230px;
+        width: 200px;
     }
+
     input, select{
         border-color: #483698;
     }
+
     input:focus, select:focus{
         border-color: #483698;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(72, 54, 152, 0.6);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(72, 54, 152, 0.6);
     }
-    h6{font-family: 'Comfortaa', cursive;color:#483698;}
-    button{display:flex;margin-bottom:30px;width:400px;text-align: center;background-color:rgb(72, 54, 152);color:#fff;}
-    
+
+    h6{
+        font-family: 'Comfortaa', cursive;
+        color:#483698;
+    }
+    .formTotal{
+        margin-left:4%;
+    }
+    button{
+        margin-bottom:30px;
+        border-radius: 15px;
+        width:400px;
+        margin-top:15px;
+        text-align: center;
+        background-color:rgb(72, 54, 152);
+        color:#fff;
+    }
+    .progress{
+        width:300px;
+    }
+    .contagem{
+        margin-top:30px;
+        font-size:20px;
+        margin-right:-300px;
+    }
+    @media (max-width: 600px)
+    {
+        .inputName{
+            width: 80%;
+        }
+        .inputName{
+            width: 80%;
+        }
+        img{
+            display: none;
+        }
+        .progress{
+            width: 250px;
+        }
+        .contagem{
+            margin-top:-25px;
+            font-size:20px;
+            margin-left: -60px;
+        }
+        button{
+            display:auto;
+            border-radius: 15px;
+            margin-left: -20px;
+            width:98%;
+            margin-top:15px;
+            text-align: center;
+            background-color:rgb(72, 54, 152);
+            color:#fff;
+        }
+    }
 </style>
 
