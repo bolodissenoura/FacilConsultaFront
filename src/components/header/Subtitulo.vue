@@ -9,7 +9,7 @@ export default{
     name: 'Titulo',
     data() {
         return{        
-            nome: 'Dados do Profissional'
+            nome: 'Dados do profissional'
         }
     }
 }
@@ -18,7 +18,8 @@ export default{
     .tituloFonte{
         display: flex;
         margin: 5% 0px 0px 8%;
-        font-family: 'Comfortaa', cursive;
-        font-weight:bold;
+        font-size: 21px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight:800;
     }
 </style>
