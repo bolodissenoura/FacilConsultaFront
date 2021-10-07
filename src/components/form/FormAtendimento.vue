@@ -25,24 +25,30 @@
                     </div>
                         
             </div>
+            
+            <label class="tituloInput" for="name">Formas de pagamento da consulta*</label>
+            <div class="box-check">
+                <input type="checkbox" style="display:flex;" >
+                <p>Pix</p>
+            </div>
 
             <div class="row ">
                 <div class="col-md-4">
                     <div class="progress" style="height: 25px;margin-top:30px;">
                         <div class="progress-bar" role="progressbar"
-                         style="width: 50%;background-color: rgb(72, 54, 152);" 
+                         style="width: 100%;background-color: rgb(72, 54, 152);" 
                          aria-valuenow="25" aria-valuemin="0" 
                          aria-valuemax="100">
                          </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h6 class="contagem" for="CPF">1 de 2</h6>
+                    <h6 class="contagem" for="CPF">2 de 2</h6>
                 </div>
             </div>
             <button @click="$router.push('cadastro')" type="submit" class="btn">PRÓXIMO</button>
         </form>
-    <img src="../../assets/desktop-pagina-1.png" style="width:400px;height:400px;" class="rounded " >
+    <img src="../../assets/desktop-pagina-2.png" style="width:300px;height:300px;" class="rounded" >
     </div>
         
 </template>
@@ -140,6 +146,14 @@
         margin-top:30px;
         font-size:20px;
         margin-right:-300px;
+    }
+    .box-check{
+        width: 90%;
+        font-family: 'Open Sans', sans-serif;
+        height: 30px;
+        background-color: #F9F9F9;
+        border-radius: 10px;
+        box-shadow:  3px 3px 2px rgba(0, 0, 0, 0.09)
     }
 
     /* Escondendo as flechinhas do Input Number  */

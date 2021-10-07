@@ -14,7 +14,7 @@
     import GoBack from '../components/button/GoBack.vue'
 
     export default {
-        name: 'Profissional',
+        name: 'Atendimento',
         components: {
             Titulo,
             Subtitulo,
