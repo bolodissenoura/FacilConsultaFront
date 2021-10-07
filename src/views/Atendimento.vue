@@ -1,5 +1,25 @@
 <template>
     <div>
-        <h1>atendimento</h1>
+        
+        <Titulo/>
+        <Subtitulo/>
+        <FormAtendimento/>
     </div>
 </template>
+
+<script>
+    import Titulo from '../components/header/Titulo.vue'
+    import Subtitulo from '../components/header/Subtitulo.vue'
+    import FormAtendimento from '../components/form/FormAtendimento.vue'
+    import GoBack from '../components/button/GoBack.vue'
+
+    export default {
+        name: 'Profissional',
+        components: {
+            Titulo,
+            Subtitulo,
+            FormAtendimento,
+            GoBack
+        }
+    }
+</script>

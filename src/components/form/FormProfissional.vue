@@ -1,4 +1,6 @@
 <template>
+    <h2 class="titulo">{{ Titulo }}</h2>
+    <h5 class="subTitulo">{{ Subtitulo }}</h5>
     <div class="row">
         
         <form style="margin: 5% 0px 0px 5%;" >
@@ -62,7 +64,7 @@
                     <h6 class="contagem" for="CPF">1 de 2</h6>
                 </div>
             </div>
-            <button type="submit" class="btn">PRÓXIMO</button>
+            <button @click="$router.push('atendimento')" type="submit" class="btn">PRÓXIMO</button>
         </form>
     <img src="../../assets/desktop-pagina-1.png" style="width:400px;height:400px;" class="rounded " >
     </div>
@@ -81,21 +83,27 @@
     }
     });
     //Mascara de Numero Celular
-        document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
-        if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
-        var i = document.getElementById("phone").value.length; //aqui pega o tamanho do input
-        if (i === 0 ) //aqui faz a divisoes colocando um ( 
-        document.getElementById("phone").value = document.getElementById("phone").value + "(";
-        if (i === 3 ) //aqui faz a divisoes colocando um )
-        document.getElementById("phone").value = document.getElementById("phone").value + ")";
-        if (i === 5 ) //aqui faz a divisoes colocando um espaco em branco apos o 5 indice
-        document.getElementById("phone").value = document.getElementById("phone").value + " ";
-        else if (i === 10) //aqui faz a divisao colocando o tracinho no decimo indice
-        document.getElementById("phone").value = document.getElementById("phone").value + "-";
-    }
-    });
+    //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
+    //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
+    //     var i = document.getElementById("phone").value.length; //aqui pega o tamanho do input
+    //     if (i === 0 ) //aqui faz a divisoes colocando um ( 
+    //     document.getElementById("phone").value = document.getElementById("phone").value + "(";
+    //     if (i === 3 ) //aqui faz a divisoes colocando um )
+    //     document.getElementById("phone").value = document.getElementById("phone").value + ")";
+    //     if (i === 5 ) //aqui faz a divisoes colocando um espaco em branco apos o 5 indice
+    //     document.getElementById("phone").value = document.getElementById("phone").value + " ";
+    //     else if (i === 10) //aqui faz a divisao colocando o tracinho no decimo indice
+    //     document.getElementById("phone").value = document.getElementById("phone").value + "-";
+    // }
+    // });
     export default{
-        name: 'InputText',
+        name: 'FormProfissional',
+        data() {
+            return{        
+                Titulo: 'Sobre o profissional',
+                Subtitulo: 'Dados do profissional'
+            }
+        },
         methods: {
         //Metodo para Input Number Only 
         NumbersOnly(evt) {

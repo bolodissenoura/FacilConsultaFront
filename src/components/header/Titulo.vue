@@ -1,17 +1,10 @@
 <template>
-    <div >
-        <h2 class="titulo">{{ nome }}</h2>
-    </div>
+
 </template>
 
 <script>
 export default{
-    name: 'Titulo',
-    data() {
-        return{        
-            nome: 'Sobre o profissional'
-        }
-    }
+    name: 'Titulo'
 }
 </script>
 <style>

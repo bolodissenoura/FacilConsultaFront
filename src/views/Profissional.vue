@@ -2,21 +2,21 @@
     <div>
         <Titulo/>
         <Subtitulo/>
-        <InputText/>
+        <FormProfissional/>
     </div>
 </template>
 
 <script>
     import Titulo from '../components/header/Titulo.vue'
     import Subtitulo from '../components/header/Subtitulo.vue'
-    import InputText from '../components/form/InputText.vue'
+    import FormProfissional from '../components/form/FormProfissional.vue'
 
     export default {
         name: 'Profissional',
         components: {
             Titulo,
             Subtitulo,
-            InputText
+            FormProfissional
         }
     }
 </script>
