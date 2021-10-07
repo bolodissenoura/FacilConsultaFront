@@ -27,6 +27,7 @@ export default{
     {
         .titulo{
             font-size:30px;
+            margin-top: 60px;
         }
     }
 </style>

@@ -33,18 +33,18 @@
                 v-on:keypress="NumbersOnly"
                 placeholder="(00)0 0000-0000">
             </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
+            <div class="row">
+                <div class="col">
                     <label class="tituloInput" for="CPF">Estado*</label>
                         <select type="text" class="form-control inputSelect" placeholder="Last name">
 
                         </select>
                 </div>
-                <div class="form-group col-md-6">
-                    <label class="tituloInput" for="CPF">Cidade*</label>
-                     <select type="text" class="form-control inputSelect" placeholder="Last name">
+                <div class="col">
+                    <label class="tituloInput" for="CPF">Estado*</label>
+                        <select type="text" class="form-control inputSelect" placeholder="Last name">
 
-                    </select>
+                        </select>
                 </div>
             </div>
 
@@ -165,10 +165,13 @@
     @media (max-width: 600px)
     {
         .inputName{
-            width: 80%;
+            width: 90%;
         }
-        .inputName{
-            width: 80%;
+        .inputSelect{
+            width: 150px;
+        }
+        .inputNumber{
+            width: 70%;
         }
         img{
             display: none;
