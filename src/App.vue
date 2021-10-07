@@ -1,30 +1,19 @@
 <template>
     <div class="center-screen">
       <div class="container-fluid">
-          <Titulo/>
-          <Subtitulo/>
-          <InputText/>
+        <router-view></router-view>
       </div>
     </div>
 </template>
 
 <script>
-  import Titulo from './components/header/Titulo.vue'
-  import Subtitulo from './components/header/Subtitulo.vue'
-  import InputText from './components/form/InputText.vue'
-
+  import Profissional from './views/Profissional.vue'
   export default {
     name: 'App',
     components: {
-      Titulo,
-      Subtitulo,
-      InputText
-    },
-    data() {
-    return{        
-        nome: 'Daniel'
+      Profissional
     }
-}
+
   }
 </script>
  <style>
