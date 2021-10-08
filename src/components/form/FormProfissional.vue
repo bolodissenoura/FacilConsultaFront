@@ -79,17 +79,18 @@
 </template>
 
 <script>
-    console.log('cu');
-    //Mascara de CPF
-        document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
-        if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
-        var i = document.getElementById("CPF").value.length; //aqui pega o tamanho do input
-        if (i === 3 || i === 7) //aqui faz a divisoes colocando um ponto no terceiro e setimo indice
-        document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
-        else if (i === 11) //aqui faz a divisao colocando o tracinho no decimo primeiro indice
-        document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
-    }
-    });
+
+    // console.log('cu');
+    // //Mascara de CPF
+    //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
+    //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
+    //     var i = document.getElementById("CPF").value.length; //aqui pega o tamanho do input
+    //     if (i === 3 || i === 7) //aqui faz a divisoes colocando um ponto no terceiro e setimo indice
+    //     document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
+    //     else if (i === 11) //aqui faz a divisao colocando o tracinho no decimo primeiro indice
+    //     document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
+    // }
+    // });
     //Mascara de Numero Celular
     //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
     //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
@@ -125,19 +126,8 @@
             }
         },
         }
-        setInterval(function caronte(){
-    const query = (query, element = document) => element.querySelector(query);
-    const queryAll = (query, element = document) => element.querySelectorAll(query);
-    const select1 = query("#select1");
-    const select2 = query("#select2");
-    const options = queryAll("option", select2);
 
-    select1.addEventListener("change", event => {
-        let text = "";
-    [...options].filter(e => e.value === select1.value).forEach(e => text += e.outerHTML);
-    select2.innerHTML = text;
-    });
-    select1.dispatchEvent(new Event("change"));}, 3000);
+
 </script>
 
 <style scoped>
