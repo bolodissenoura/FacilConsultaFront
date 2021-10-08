@@ -1,4 +1,7 @@
 <template>
+<div class="center-screen">
+<div class="container-fluid">
+    <!-- Container Branco Comeco-->
     <h2 class="titulo">{{ Titulo }}</h2>
     <h5 class="subTitulo">{{ Subtitulo }}</h5>
     <div class="row">
@@ -76,6 +79,10 @@
         </form>
     <img src="../../assets/desktop-pagina-2.png" style="width:300px;height:300px;" class="rounded" >
     </div>
+
+<!-- Container Branco Final-->
+</div>
+</div>
         
 </template>
 
@@ -94,6 +101,21 @@
 </script>
 
 <style scoped>
+    .container-fluid{
+        background-color:#fff;
+        height: auto;
+        width: 900px;
+        border-radius: 20px;
+        box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    }
+    .center-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+    }
+
     .tituloInput{
         max-width: 300px;
         min-width: 100px;
@@ -170,6 +192,15 @@
     /* Deixando Responsivo  */
     @media (max-width: 600px)
     {
+        .container-fluid{
+          border-radius: 0px;
+          border-top-left-radius: 60px;
+          border-top-right-radius: 60px;
+          margin-top:80px;
+          max-width: 100%;
+          height: 92vh;
+          overflow-x: hidden;
+        }
         .inputName{
             width: 90%;
         }

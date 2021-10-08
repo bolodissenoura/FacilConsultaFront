@@ -1,6 +1,8 @@
 <template>
     <div class="goBack">
-        <a @click="goBack"> a </a>
+        <a @click="goBack"> 
+            <img src="../../assets/goBack.png" style="width:25px;height:25px;" class="rounded " >
+        </a>
     </div>
 </template>
 
@@ -17,7 +19,15 @@ export default {
 </script>
 <style scoped>
     .goBack{
-        display: flex;
-        padding-top: -100px;
+        margin-left:300px;
+    }
+    .goBack:hover{
+        cursor: pointer;
+
+    }
+    @media (max-width: 600px){
+    .goBack{
+        margin: 20px 0px -20px 20px;
+    }
     }
 </style>

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <GoBack/>
         <Titulo/>
         <Subtitulo/>
         <FormAtendimento/>
