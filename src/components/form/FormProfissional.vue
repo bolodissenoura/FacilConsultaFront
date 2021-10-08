@@ -6,22 +6,28 @@
     <h5 class="subTitulo">{{ Subtitulo }}</h5>
     <div class="row">
         
-        <form style="margin: 5% 0px 0px 5%;" >
+        <form @submit="SubmitForm" class="needs-validation" style="margin: 5% 0px 0px 5%;" >
             <div class="form-group">
                 <label class="tituloInput" for="name">Nome Completo*</label>
                 <input 
                 type="name" 
+                required
                 class="form-control inputName" 
+                style="text-transform: capitalize;"
                 id="name" aria-describedby="name" 
+                v-model="formValues.nome"
                 minlength="3"
                 maxlength="48"
                 placeholder="Digite o nome completo">
             </div>
+            <p>{{JSON.stringify(formValues.cidades)}}</p>
             <div class="form-group">
-                <label class="tituloInput" for="CPF">CPF*</label>
+                <label class="tituloInput" for="cpf">CPF*</label>
                 <input 
                 type="text"
                 inputmode="numeric" 
+                required
+                v-model="formValues.cpf"
                 class="form-control inputNumber"
                 maxlength="14" id="CPF" 
                 v-on:keypress="NumbersOnly"
@@ -29,33 +35,37 @@
                 
             </div>
             <div class="form-group">
-                <label class="tituloInput" >Número de celular*</label>
+                <label class="tituloInput" for="celular" >Número de celular*</label>
                 <input 
                 type="tel"
                 inputmode="numeric" 
                 class="form-control inputNumber"
                 maxlength="15" id="phone" 
+                v-model="formValues.celular"
+                required
                 v-on:keypress="NumbersOnly"
                 placeholder="(00)0 0000-0000">
             </div>
             <div class="row">
                 <div class="col">
                     <label class="tituloInput"  >Estado*</label>
-                        <select type="text" class="form-control inputSelect" name="select1" id="select1">
-                            <option value="1">Paraná</option>
-                            <option value="2">Rio Grande do Sul</option>
-                            <option value="3">Santa Catarina</option>
+                        <select required v-model="formValues.estados" placeholder="Selecione" class="form-control inputSelect" name="select1" id="select1">
+                            <option disabled selected value="">Selecione</option>
+                            <option>Paraná</option>
+                            <option>Rio Grande do Sul</option>
+                            <option>Santa Catarina</option>
                         </select>
                 </div>
                 <div class="col">
                     <label class="tituloInput" >Cidade*</label>
-                        <select type="text" class="form-control inputSelect" name="select2" id="select2">
-                            <option value="1" id="paranaCidades">Londrina</option>
-                            <option value="1" id="paranaCidades">Maringá</option>
-                            <option value="2" id="rsCidades">Pelotas</option>
-                            <option value="2" id="rsCidades">Porto Alegre</option>
-                            <option value="3" id="scCidades">Florianópolis</option>
-                            <option value="3" id="scCidades">Joinville</option>
+                        <select required v-model="formValues.cidades" type="text" placeholder="Selecione" class="form-control inputSelect" name="select2" id="select2">
+                            <option disabled selected value="">Selecione</option>
+                            <option>Londrina</option>
+                            <option>Maringá</option>
+                            <option>Pelotas</option>
+                            <option>Porto Alegre</option>
+                            <option>Florianópolis</option>
+                            <option>Joinville</option>
                         </select>
                 </div>
             </div>
@@ -74,7 +84,7 @@
                     <h6 class="contagem" >1 de 2</h6>
                 </div>
             </div>
-            <button @click="$router.push('atendimento')" type="submit" class="btn">PRÓXIMO</button>
+            <button type="submit"  class="btn">PRÓXIMO</button>
         </form>
     <img src="../../assets/desktop-pagina-1.png" style="width:400px;height:400px;" class="rounded " >
     </div>
@@ -97,56 +107,59 @@
          document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
      }
      });
-     document.addEventListener('click', function(event){
-            var select1 = document.getElementById("select1");
-            var select2 = document.getElementById("select2");
 
-            select1.addEventListener('click', function(event){
-                const query = (query, element = document) => element.querySelector(query);
-                const queryAll = (query, element = document) => element.querySelectorAll(query);
-                const options = queryAll("option", select2);
-                if(select1.value == 1 || select1.value == 2 || select1.value ==3){let text = "";
-                    [...options].filter(e => e.value === select1.value).forEach(e => text += e.outerHTML);
-                    select2.innerHTML = text;};
-            
-        });
-    });
+    
        
         
     //Mascara de Numero Celular
-    //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
-    //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
-    //     var i = document.getElementById("phone").value.length; //aqui pega o tamanho do input
-    //     if (i === 0 ) //aqui faz a divisoes colocando um ( 
-    //     document.getElementById("phone").value = document.getElementById("phone").value + "(";
-    //     if (i === 3 ) //aqui faz a divisoes colocando um )
-    //     document.getElementById("phone").value = document.getElementById("phone").value + ")";
-    //     if (i === 5 ) //aqui faz a divisoes colocando um espaco em branco apos o 5 indice
-    //     document.getElementById("phone").value = document.getElementById("phone").value + " ";
-    //     else if (i === 10) //aqui faz a divisao colocando o tracinho no decimo indice
-    //     document.getElementById("phone").value = document.getElementById("phone").value + "-";
-    // }
-    // });
+         document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
+         if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
+         var i = document.getElementById("phone").value.length; //aqui pega o tamanho do input
+         if (i === 0 ) //aqui faz a divisoes colocando um ( 
+         document.getElementById("phone").value = document.getElementById("phone").value + "(";
+         if (i === 3 ) //aqui faz a divisoes colocando um )
+         document.getElementById("phone").value = document.getElementById("phone").value + ")";
+         if (i === 5 ) //aqui faz a divisoes colocando um espaco em branco apos o 5 indice
+         document.getElementById("phone").value = document.getElementById("phone").value + " ";
+         else if (i === 10) //aqui faz a divisao colocando o tracinho no decimo indice
+       document.getElementById("phone").value = document.getElementById("phone").value + "-";
+     }
+     });
+     
     export default{
         name: 'FormProfissional',
+        props: ['formValues'],
         data() {
             return{        
                 Titulo: 'Sobre o profissional',
-                Subtitulo: 'Dados do profissional'
+                Subtitulo: 'Dados do profissional',
+                formValues:{
+                    nome: '',
+                    cpf: '',
+                    estados: '',
+                    cidades: ''
+                }
             }
+
         },
         methods: {
-        //Metodo para Input Number Only 
-        NumbersOnly(evt) {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-            evt.preventDefault();;
-        } else {
-            return true;
+             //Metodo para Input Number Only 
+            NumbersOnly(evt) {
+                evt = (evt) ? evt : window.event;
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                    evt.preventDefault();;
+                } else {
+                    return true;
+                    }
+                    },
+            SubmitForm(event){
+                event.preventDefault()
+                console.log('Form valores', this.formValues)
             }
-            }
+        
         },
+        
         }
 
 
@@ -172,6 +185,7 @@
         min-width: 100px;
         display: flex;
     }
+
     .inputName{
         width: 400px;
     }

@@ -6,17 +6,17 @@
     <h5 class="subTitulo">{{ Subtitulo }}</h5>
     <div class="row">
         
-        <form style="margin: 5% 0px 0px 5%;" >
+        <form  @submit="$router.push('cadastro')" style="margin: 5% 0px 0px 5%;" >
             <div class="form-group">
                 <label class="tituloInput" for="name">Especialidade Principal*</label>
-                <select type="text" class="form-control inputSelect" placeholder="Selecione a especialidade">
-                    <option selected>Selecione a especialidade</option>
-                    <option value="Cardiologia">Cardiologia</option>
-                    <option value="Dermatologia">Dermatologia</option>
-                    <option value="Neurologia">Neurologia</option>
-                    <option value="Oftalmologia">Oftalmologia</option>
-                    <option value="Psiquiatria">Psiquiatria</option>
-                    <option value="Urologia">Urologia</option>
+                <select required type="text" class="form-control inputSelect" >
+                    <option value="" disabled selected>Selecione a especialidade</option>
+                    <option 
+                        v-for="especialidade in especialidades" 
+                        v-bind:key="especialidade.select1"
+                        v-bind:value="especialidade.value">
+                        {{especialidade.text}}
+                    </option>
                 </select>
             </div>
 
@@ -24,7 +24,7 @@
                 <label class="tituloInput" for="name">Especialidade Principal*</label>
                     <div class="input-group-prepend">
                         <span style="background-color:#483698;color:#fff;font-weight:bold;" class="input-group-text">R$</span>
-                        <input type="number" style="margin-left:-10px;" class="form-control precoInput" placeholder="Valor">
+                        <input required type="number" style="margin-left:-10px;" class="form-control precoInput" placeholder="Valor" min="30" max="350">
                     </div>
                         
             </div>
@@ -35,26 +35,26 @@
                 
                 
                 <div class="box-check">
-                    <input name="check" type="checkbox"  class="checkbox"  style="margin-right:10px;" >
+                    <input name="check" type="radio"  class="checkbox"  style="margin-right:10px;" >
                     <span id="check">Pix</span>
                 </div>
 
                 <div class="box-check" style="margin-top:15px;">
-                    <input name="check" type="checkbox" class="checkbox"  style="margin-right:10px;" >
+                    <input name="check" type="radio" class="checkbox"  style="margin-right:10px;" >
                     <span >Em dinheiro</span>
                 </div>
 
                 <div class="box-check" style="margin-top:15px;">
-                    <input name="check" type="checkbox" class="checkbox"  id="cartaoCredito" style="margin-right:10px;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+                    <input name="check" type="radio" class="checkbox"  id="cartaoCredito" style="margin-right:10px;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
                     <span >Cartão de Crédito</span>
                                     <div id="collapseExample"  class="box-check-cartao collapse">
                     <br/>
                     <span>Parcelamento em</span> <br/><br/>
-                    <input name="check" type="checkbox" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
+                    <input name="check" type="radio" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
                     <span >1x, sem juros</span> <br/><br/>
-                    <input name="check" type="checkbox" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
+                    <input name="check" type="radio" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
                     <span >2x, sem juros</span> <br/><br/>
-                    <input name="check" type="checkbox" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
+                    <input name="check" type="radio" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
                     <span >3x, sem juros</span>
                 </div>
                 </div>
@@ -75,7 +75,7 @@
                     <h6 class="contagem" for="CPF">2 de 2</h6>
                 </div>
             </div>
-            <button @click="$router.push('cadastro')" type="submit" class="btn">PRÓXIMO</button>
+            <button type="submit" class="btn">PRÓXIMO</button>
         </form>
     <img src="../../assets/desktop-pagina-2.png" style="width:300px;height:300px;" class="rounded" >
     </div>
@@ -93,7 +93,14 @@
         data() {
             return{        
                 Titulo: 'Sobre o atendimento',
-                Subtitulo: 'Detalhes do atendimento'
+                Subtitulo: 'Detalhes do atendimento',
+                especialidades: [
+                    { text: 'Cardiologia', value: '1' },
+                    { text: 'Dermatologia', value: '2' },
+                    { text: 'Neurologia', value: '3' },
+                    { text: 'Oftalmologia', value: '4' },
+                    { text: 'Urologia', value: '5' }
+                ]
             }
         }
         }

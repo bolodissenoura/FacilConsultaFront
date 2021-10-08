@@ -4,10 +4,10 @@
     <!-- Container Branco Comeco-->
     <h2 class="titulo">{{ Titulo }}</h2>
     <div class="row">
-        <form style="margin: 5% 0px 0px 10%;" >
+        <div style="margin: 5% 0px 0px 10%;" >
                 <div class="form-group">
                     <label class="tituloInput resultadoTitulo" for="name">Nome Completo</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">{{ formValues }}</p>
                     <label class="tituloInput resultadoTitulo" for="name">CPF</label>
                     <p class="tituloInput">Fabricio</p>
                     <label class="tituloInput resultadoTitulo" for="name">Número de celular ou telefone</label>
@@ -24,7 +24,7 @@
 
             <button type="submit" class="btn">CADASTRAR PROFISSIONAL</button><br/>
             <a style="font-family: 'Comfortaa', cursive;color:#483698;" href="">Editar cadastro</a>
-        </form>
+        </div>
     <img src="../../assets/desktop-pagina-3.png" style="width:400px;height:400px;" class="rounded" >
     </div>
        <!-- Container Branco Final-->
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    
+    import nome from './FormProfissional.vue'
     export default{
         name: 'FormAtendimento',
         data() {
