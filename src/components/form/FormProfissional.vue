@@ -50,12 +50,12 @@
                 <div class="col">
                     <label class="tituloInput" >Cidade*</label>
                         <select type="text" class="form-control inputSelect" name="select2" id="select2">
-                            <option value="1">Londrina</option>
-                            <option value="1">Maringá</option>
-                            <option value="2">Pelotas</option>
-                            <option value="2">Porto Alegre</option>
-                            <option value="3">Florianópolis</option>
-                            <option value="3">Joinville</option>
+                            <option value="1" id="paranaCidades">Londrina</option>
+                            <option value="1" id="paranaCidades">Maringá</option>
+                            <option value="2" id="rsCidades">Pelotas</option>
+                            <option value="2" id="rsCidades">Porto Alegre</option>
+                            <option value="3" id="scCidades">Florianópolis</option>
+                            <option value="3" id="scCidades">Joinville</option>
                         </select>
                 </div>
             </div>
@@ -88,15 +88,31 @@
 
     // console.log('cu');
     // //Mascara de CPF
-    //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
-    //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
-    //     var i = document.getElementById("CPF").value.length; //aqui pega o tamanho do input
-    //     if (i === 3 || i === 7) //aqui faz a divisoes colocando um ponto no terceiro e setimo indice
-    //     document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
-    //     else if (i === 11) //aqui faz a divisao colocando o tracinho no decimo primeiro indice
-    //     document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
-    // }
-    // });
+         document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
+         if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
+         var i = document.getElementById("CPF").value.length; //aqui pega o tamanho do input
+         if (i === 3 || i === 7) //aqui faz a divisoes colocando um ponto no terceiro e setimo indice
+         document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
+         else if (i === 11) //aqui faz a divisao colocando o tracinho no decimo primeiro indice
+         document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
+     }
+     });
+     document.addEventListener('click', function(event){
+            var select1 = document.getElementById("select1");
+            var select2 = document.getElementById("select2");
+
+            select1.addEventListener('click', function(event){
+                const query = (query, element = document) => element.querySelector(query);
+                const queryAll = (query, element = document) => element.querySelectorAll(query);
+                const options = queryAll("option", select2);
+                if(select1.value == 1 || select1.value == 2 || select1.value ==3){let text = "";
+                    [...options].filter(e => e.value === select1.value).forEach(e => text += e.outerHTML);
+                    select2.innerHTML = text;};
+            
+        });
+    });
+       
+        
     //Mascara de Numero Celular
     //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
     //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
