@@ -25,11 +25,37 @@
                     </div>
                         
             </div>
+
             
             <label class="tituloInput" for="name">Formas de pagamento da consulta*</label>
-            <div class="box-check">
-                <input type="checkbox" style="display:flex;" >
-                <p>Pix</p>
+            <div class="form-group">
+                
+                
+                <div class="box-check">
+                    <input name="check" type="checkbox"  class="checkbox"  style="margin-right:10px;" >
+                    <span id="check">Pix</span>
+                </div>
+
+                <div class="box-check" style="margin-top:15px;">
+                    <input name="check" type="checkbox" class="checkbox"  style="margin-right:10px;" >
+                    <span >Em dinheiro</span>
+                </div>
+
+                <div class="box-check" style="margin-top:15px;">
+                    <input name="check" type="checkbox" class="checkbox"  id="cartaoCredito" style="margin-right:10px;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+                    <span >Cartão de Crédito</span>
+                                    <div id="collapseExample"  class="box-check-cartao collapse">
+                    <br/>
+                    <span>Parcelamento em</span> <br/><br/>
+                    <input name="check" type="checkbox" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
+                    <span >1x, sem juros</span> <br/><br/>
+                    <input name="check" type="checkbox" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
+                    <span >2x, sem juros</span> <br/><br/>
+                    <input name="check" type="checkbox" class="checkbox" id="cartaoCredito" style="margin-right:10px;" >
+                    <span >3x, sem juros</span>
+                </div>
+                </div>
+
             </div>
 
             <div class="row ">
@@ -54,30 +80,7 @@
 </template>
 
 <script>
-    //Mascara de CPF
-        document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
-        if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
-        var i = document.getElementById("CPF").value.length; //aqui pega o tamanho do input
-        if (i === 3 || i === 7) //aqui faz a divisoes colocando um ponto no terceiro e setimo indice
-        document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
-        else if (i === 11) //aqui faz a divisao colocando o tracinho no decimo primeiro indice
-        document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
-    }
-    });
-    //Mascara de Numero Celular
-    //     document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
-    //     if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
-    //     var i = document.getElementById("phone").value.length; //aqui pega o tamanho do input
-    //     if (i === 0 ) //aqui faz a divisoes colocando um ( 
-    //     document.getElementById("phone").value = document.getElementById("phone").value + "(";
-    //     if (i === 3 ) //aqui faz a divisoes colocando um )
-    //     document.getElementById("phone").value = document.getElementById("phone").value + ")";
-    //     if (i === 5 ) //aqui faz a divisoes colocando um espaco em branco apos o 5 indice
-    //     document.getElementById("phone").value = document.getElementById("phone").value + " ";
-    //     else if (i === 10) //aqui faz a divisao colocando o tracinho no decimo indice
-    //     document.getElementById("phone").value = document.getElementById("phone").value + "-";
-    // }
-    // });
+    
     export default{
         name: 'FormAtendimento',
         data() {
@@ -85,20 +88,9 @@
                 Titulo: 'Sobre o atendimento',
                 Subtitulo: 'Detalhes do atendimento'
             }
-        },
-        methods: {
-        //Metodo para Input Number Only 
-        NumbersOnly(evt) {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-            evt.preventDefault();;
-        } else {
-            return true;
-            }
-            }
         }
         }
+
 </script>
 
 <style scoped>
@@ -148,13 +140,22 @@
         margin-right:-300px;
     }
     .box-check{
-        width: 90%;
+        width: 300px;
         font-family: 'Open Sans', sans-serif;
-        height: 30px;
+        height:auto;
         background-color: #F9F9F9;
         border-radius: 10px;
         box-shadow:  3px 3px 2px rgba(0, 0, 0, 0.09)
     }
+    .box-check-cartao{
+        width: 300px;
+        font-family: 'Open Sans', sans-serif;
+        height:auto;
+        background-color: #F9F9F9;
+        box-shadow:  3px 3px 2px rgba(0, 0, 0, 0.09)
+    }
+    .checkbox{filter: hue-rotate(30deg)}
+
 
     /* Escondendo as flechinhas do Input Number  */
     input::-webkit-outer-spin-button,
@@ -187,7 +188,6 @@
         .contagem{
             margin-top:-25px;
             font-size:20px;
-            margin-left: -60px;
         }
         button{
             display:auto;

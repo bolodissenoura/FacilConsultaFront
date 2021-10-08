@@ -26,7 +26,7 @@
                 
             </div>
             <div class="form-group">
-                <label class="tituloInput" for="CPF">Número de celular*</label>
+                <label class="tituloInput" >Número de celular*</label>
                 <input 
                 type="tel"
                 inputmode="numeric" 
@@ -37,15 +37,22 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label class="tituloInput" for="CPF">Estado*</label>
-                        <select type="text" class="form-control inputSelect" placeholder="Last name">
-
+                    <label class="tituloInput"  >Estado*</label>
+                        <select type="text" class="form-control inputSelect" name="select1" id="select1">
+                            <option value="1">Paraná</option>
+                            <option value="2">Rio Grande do Sul</option>
+                            <option value="3">Santa Catarina</option>
                         </select>
                 </div>
                 <div class="col">
-                    <label class="tituloInput" for="CPF">Estado*</label>
-                        <select type="text" class="form-control inputSelect" placeholder="Last name">
-
+                    <label class="tituloInput" >Cidade*</label>
+                        <select type="text" class="form-control inputSelect" name="select2" id="select2">
+                            <option value="1">Londrina</option>
+                            <option value="1">Maringá</option>
+                            <option value="2">Pelotas</option>
+                            <option value="2">Porto Alegre</option>
+                            <option value="3">Florianópolis</option>
+                            <option value="3">Joinville</option>
                         </select>
                 </div>
             </div>
@@ -61,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h6 class="contagem" for="CPF">1 de 2</h6>
+                    <h6 class="contagem" >1 de 2</h6>
                 </div>
             </div>
             <button @click="$router.push('atendimento')" type="submit" class="btn">PRÓXIMO</button>
@@ -72,6 +79,7 @@
 </template>
 
 <script>
+    console.log('cu');
     //Mascara de CPF
         document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
         if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
@@ -115,8 +123,21 @@
             return true;
             }
             }
+        },
         }
-        }
+        setInterval(function caronte(){
+    const query = (query, element = document) => element.querySelector(query);
+    const queryAll = (query, element = document) => element.querySelectorAll(query);
+    const select1 = query("#select1");
+    const select2 = query("#select2");
+    const options = queryAll("option", select2);
+
+    select1.addEventListener("change", event => {
+        let text = "";
+    [...options].filter(e => e.value === select1.value).forEach(e => text += e.outerHTML);
+    select2.innerHTML = text;
+    });
+    select1.dispatchEvent(new Event("change"));}, 3000);
 </script>
 
 <style scoped>
