@@ -7,19 +7,19 @@
         <div style="margin: 5% 0px 0px 10%;" >
                 <div class="form-group">
                     <label class="tituloInput resultadoTitulo" for="name">Nome Completo</label>
-                    <p class="tituloInput">{{ formValues }}</p>
+                    <p class="tituloInput" id="nomeValor"></p>
                     <label class="tituloInput resultadoTitulo" for="name">CPF</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">11.1111.111.1</p>
                     <label class="tituloInput resultadoTitulo" for="name">Número de celular ou telefone</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">(12)988990193</p>
                     <label class="tituloInput resultadoTitulo" for="name">Estado/Cidade</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">Estado</p>
                     <label class="tituloInput resultadoTitulo" for="name">Especialidade principal</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">Cidade</p>
                     <label class="tituloInput resultadoTitulo" for="name">Preço da consulta</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">R$ 00,00</p>
                     <label class="tituloInput resultadoTitulo" for="name">Formas de pagamento da consulta</label>
-                    <p class="tituloInput">Fabricio</p>
+                    <p class="tituloInput">Pagamento</p>
             </div>
 
             <button type="submit" class="btn">CADASTRAR PROFISSIONAL</button><br/>
@@ -33,15 +33,23 @@
 </template>
 
 <script>
-    import nome from './FormProfissional.vue'
+
     export default{
         name: 'FormAtendimento',
         data() {
             return{        
                 Titulo: 'Revisão do Cadastro'
             }
+        },
+        mounted(){
+             
+            var aValue = localStorage.getItem('FormValores');
+            document.getElementById("nomeValor").innerHTML = JSON.stringify(aValue) ;
+            console.log(localStorage.getItem('FormValores')[0,10]);
         }
-        }
+    }
+        
+
 
 </script>
 

@@ -6,7 +6,7 @@
     <h5 class="subTitulo">{{ Subtitulo }}</h5>
     <div class="row">
         
-        <form @submit="SubmitForm" class="needs-validation" style="margin: 5% 0px 0px 5%;" >
+        <form @submit="$router.push('atendimento')"  style="margin: 5% 0px 0px 5%;" >
             <div class="form-group">
                 <label class="tituloInput" for="name">Nome Completo*</label>
                 <input 
@@ -14,13 +14,13 @@
                 required
                 class="form-control inputName" 
                 style="text-transform: capitalize;"
-                id="name" aria-describedby="name" 
+                id="name" name="name"  aria-describedby="name" 
                 v-model="formValues.nome"
                 minlength="3"
                 maxlength="48"
                 placeholder="Digite o nome completo">
             </div>
-            <p>{{JSON.stringify(formValues.cidades)}}</p>
+            
             <div class="form-group">
                 <label class="tituloInput" for="cpf">CPF*</label>
                 <input 
@@ -29,7 +29,7 @@
                 required
                 v-model="formValues.cpf"
                 class="form-control inputNumber"
-                maxlength="14" id="CPF" 
+                maxlength="14" id="CPF" name="CPF" 
                 v-on:keypress="NumbersOnly"
                 placeholder="Digite um CPF">
                 
@@ -40,7 +40,7 @@
                 type="tel"
                 inputmode="numeric" 
                 class="form-control inputNumber"
-                maxlength="15" id="phone" 
+                maxlength="15" id="phone" name="phone" 
                 v-model="formValues.celular"
                 required
                 v-on:keypress="NumbersOnly"
@@ -50,22 +50,22 @@
                 <div class="col">
                     <label class="tituloInput"  >Estado*</label>
                         <select required v-model="formValues.estados" placeholder="Selecione" class="form-control inputSelect" name="select1" id="select1">
-                            <option disabled selected value="">Selecione</option>
-                            <option>Paraná</option>
-                            <option>Rio Grande do Sul</option>
-                            <option>Santa Catarina</option>
+                            <option disabled selected value="0">Selecione</option>
+                            <option value="1">Paraná</option>
+                            <option value="2">Rio Grande do Sul</option>
+                            <option value="3">Santa Catarina</option>
                         </select>
                 </div>
                 <div class="col">
                     <label class="tituloInput" >Cidade*</label>
-                        <select required v-model="formValues.cidades" type="text" placeholder="Selecione" class="form-control inputSelect" name="select2" id="select2">
-                            <option disabled selected value="">Selecione</option>
-                            <option>Londrina</option>
-                            <option>Maringá</option>
-                            <option>Pelotas</option>
-                            <option>Porto Alegre</option>
-                            <option>Florianópolis</option>
-                            <option>Joinville</option>
+                        <select required v-model="formValues.cidades"  placeholder="Selecione" class="form-control inputSelect" name="select2" id="select2">
+                            <option disabled selected value="0">Selecione</option>
+                            <option value="1">Londrina</option>
+                            <option value="1">Maringá</option>
+                            <option value="2">Pelotas</option>
+                            <option value="2">Porto Alegre</option>
+                            <option value="3">Florianópolis</option>
+                            <option value="3">Joinville</option>
                         </select>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                     <h6 class="contagem" >1 de 2</h6>
                 </div>
             </div>
-            <button type="submit"  class="btn">PRÓXIMO</button>
+            <button type="submit" @click="SubmitForm" class="btn">PRÓXIMO</button>
         </form>
     <img src="../../assets/desktop-pagina-1.png" style="width:400px;height:400px;" class="rounded " >
     </div>
@@ -108,9 +108,7 @@
      }
      });
 
-    
-       
-        
+
     //Mascara de Numero Celular
          document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
          if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
@@ -128,7 +126,6 @@
      
     export default{
         name: 'FormProfissional',
-        props: ['formValues'],
         data() {
             return{        
                 Titulo: 'Sobre o profissional',
@@ -151,16 +148,17 @@
                     evt.preventDefault();;
                 } else {
                     return true;
-                    }
-                    },
-            SubmitForm(event){
-                event.preventDefault()
-                console.log('Form valores', this.formValues)
+                }
+            },
+            SubmitForm(){
+                var storeForm = localStorage.setItem('FormValores', JSON.stringify(this.formValues))
+                console.log('FormValores', JSON.stringify(this.formValues))
             }
         
         },
         
         }
+        
 
 
 </script>
