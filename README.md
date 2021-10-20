@@ -2,6 +2,7 @@
 <h1 align="center">Facil Consulta</h1>
 
 ![](https://media.giphy.com/media/3OtcGVbyaovaoRJn21/giphy.gif)
+![alt text](https://w7.pngwing.com/pngs/70/60/png-transparent-vue-js-javascript-library-github-github-angle-text-triangle.png)
 
 <p align="center">
 Este foi um projeto que gostei muito de fazer, apesar do pouco tempo disponível em minha agenda para executa-lo.
