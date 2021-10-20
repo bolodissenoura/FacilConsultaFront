@@ -9,7 +9,7 @@
         <form  @submit="$router.push('cadastro')" style="margin: 5% 0px 0px 5%;" >
             <div class="form-group">
                 <label class="tituloInput" for="name">Especialidade Principal*</label>
-                <select v-model="formAtend.especialidades" required class="form-control inputSelect" >
+                <select v-model="formAtend.especialidades" id="tipoConsulta" required class="form-control inputSelect" >
                     <option value="0" disabled selected>Selecione a especialidade</option>
                     <option value="Cardiologia">Cardiologia</option>
                     <option value="Dermatologia">Dermatologia</option>
@@ -24,7 +24,7 @@
                 <label class="tituloInput" for="name">Especialidade Principal*</label>
                 <div class="input-group-prepend">
                     <span style="background-color:#483698;color:#fff;font-weight:bold;" class="input-group-text">R$</span>
-                    <input required type="number" style="margin-left:-10px;" v-model="formAtend.valor" class="form-control precoInput" placeholder="Valor" min="30" max="350">
+                    <input required type="number" style="margin-left:-10px;" v-model="formAtend.valor" id="dinheiro" class="form-control precoInput" placeholder="Valor" min="30" max="350">
                 </div>   
             </div>
 
@@ -34,26 +34,26 @@
                 
                 
                 <div class="box-check" >
-                    <input name="check" type="radio"  class="checkbox" v-model="formAtend.pagamento" style="margin-right:10px;" >
-                    <span id="check">Pix</span>
+                    <input name="check" id="checkboxPix" type="checkbox"  class="checkbox" style="margin-right:10px;" >
+                    <span id="checkboxPix">Pix</span>
                 </div>
 
                 <div class="box-check" style="margin-top:15px;">
-                    <input name="check" type="radio" class="checkbox" v-model="formAtend.pagamento" style="margin-right:10px;" >
+                    <input name="checkboxDinheiro" id="checkboxDinheiro" type="checkbox" class="checkbox" style="margin-right:10px;" >
                     <span >Em dinheiro</span>
                 </div>
 
                 <div class="box-check" style="margin-top:15px;">
-                    <input name="check" type="radio" class="checkbox"  id="cartaoCredito" style="margin-right:10px;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+                    <input name="check" id="checkboxCartao" type="checkbox" class="checkbox" style="margin-right:10px;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
                     <span >Cartão de Crédito</span>
                     <div id="collapseExample"  class="box-check-cartao collapse">
                     <br/>
                     <span>Parcelamento em</span> <br/><br/>
-                    <input name="check" type="radio" class="checkbox" v-model="formAtend.pagamento" id="cartaoCredito" style="margin-right:10px;" >
+                    <input name="check" id="checkbox" type="checkbox" class="checkbox" style="margin-right:10px;" >
                     <span >1x, sem juros</span> <br/><br/>
-                    <input name="check" type="radio" class="checkbox" v-model="formAtend.pagamento" id="cartaoCredito" style="margin-right:10px;" >
+                    <input name="check" id="checkbox" type="checkbox" class="checkbox" style="margin-right:10px;" >
                     <span >2x, sem juros</span> <br/><br/>
-                    <input name="check" type="radio" class="checkbox" v-model="formAtend.pagamento" id="cartaoCredito" style="margin-right:10px;" >
+                    <input name="check" id="checkbox" type="checkbox" class="checkbox" style="margin-right:10px;" >
                     <span >3x, sem juros</span>
                 </div>
                 </div>
@@ -74,7 +74,7 @@
                     <h6 class="contagem" for="CPF">2 de 2</h6>
                 </div>
             </div>
-            <button type="submit" @click="SubmitAtend" class="btn">PRÓXIMO</button>
+            <button type="submit" @click="save_data()" class="btn">PRÓXIMO</button>
         </form>
     <img src="../../assets/desktop-pagina-2.png" style="width:300px;height:300px;" class="rounded" >
     </div>
@@ -105,6 +105,25 @@
             SubmitAtend(){
                 var storeFormAtend = localStorage.setItem('FormAtend', JSON.stringify(this.formAtend))
                 console.log('FormAtend', JSON.stringify(this.formAtend))
+            },
+            save_data() {
+                var inputConsulta = document.getElementById("tipoConsulta");
+                var inputDinheiro = document.getElementById("dinheiro");
+
+                var formaPagamentoPix = document.getElementById("checkboxPix");
+                var formaPagamentoDinheiro = document.getElementById("checkboxDinheiro");
+
+                var formaPagamentoCartão = document.getElementById("checkboxCartao");
+               
+
+                localStorage.setItem("tipoConsulta", inputConsulta.value); 
+                localStorage.setItem("dinheiro", inputDinheiro.value);
+
+                localStorage.setItem("checkboxPix", formaPagamentoPix.value);
+                localStorage.setItem("checkboxDinheiro", formaPagamentoDinheiro.value);
+                localStorage.setItem("checkboxCartao", formaPagamentoCartão.value);
+                
+                
             }
         },
         };

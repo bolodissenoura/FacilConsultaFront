@@ -7,19 +7,19 @@
         <div style="margin: 5% 0px 0px 10%;" >
                 <div class="form-group">
                     <label class="tituloInput resultadoTitulo" for="name">Nome Completo</label>
-                    <p class="tituloInput" id="nomeValor"></p>
+                    <p class="tituloInput" id="nomeVolta"></p>
                     <label class="tituloInput resultadoTitulo" for="name">CPF</label>
-                    <p class="tituloInput">11.1111.111.1</p>
+                    <p class="tituloInput" id="cpfVolta"></p>
                     <label class="tituloInput resultadoTitulo" for="name">Número de celular ou telefone</label>
-                    <p class="tituloInput">(12)988990193</p>
+                    <p class="tituloInput" id="phone"></p>
                     <label class="tituloInput resultadoTitulo" for="name">Estado/Cidade</label>
-                    <p class="tituloInput">Estado</p>
+                    <p class="tituloInput" id="estado"></p><p class="tituloInput" id="cidade"></p>
                     <label class="tituloInput resultadoTitulo" for="name">Especialidade principal</label>
-                    <p class="tituloInput">Cidade</p>
+                    <p class="tituloInput" id="consulta"></p>
                     <label class="tituloInput resultadoTitulo" for="name">Preço da consulta</label>
-                    <p class="tituloInput">R$ 00,00</p>
+                    <p class="tituloInput" id="dinheiro"></p>
                     <label class="tituloInput resultadoTitulo" for="name">Formas de pagamento da consulta</label>
-                    <p class="tituloInput">Pagamento</p>
+                    <p class="tituloInput" id="pagamento"></p>
             </div>
 
             <button type="submit" class="btn">CADASTRAR PROFISSIONAL</button><br/>
@@ -34,6 +34,7 @@
 
 <script>
 
+
     export default{
         name: 'FormAtendimento',
         data() {
@@ -42,10 +43,25 @@
             }
         },
         mounted(){
-             
-            var aValue = localStorage.getItem('FormValores');
-            document.getElementById("nomeValor").innerHTML = JSON.stringify(aValue) ;
-            console.log(localStorage.getItem('FormValores')[0,10]);
+
+            document.getElementById('nomeVolta').innerHTML = localStorage.getItem("name");
+            document.getElementById('cpfVolta').innerHTML = localStorage.getItem("CPF");
+            document.getElementById('phone').innerHTML = localStorage.getItem("phone");
+            document.getElementById('estado').innerHTML = localStorage.getItem("select1");
+            document.getElementById('cidade').innerHTML = localStorage.getItem("select2");
+            document.getElementById('consulta').innerHTML = localStorage.getItem("tipoConsulta");
+            document.getElementById('dinheiro').innerHTML = localStorage.getItem("dinheiro");
+
+            if(localStorage.getItem("checkboxPix") == 'on'){
+                document.getElementById('pagamento').innerHTML = 'Pix';
+            }
+            if(localStorage.getItem("checkboxDinheiro") == 'on'){
+                document.getElementById('pagamento').innerHTML = 'Dinheiro';
+            }
+            if(localStorage.getItem("checkboxCartao") == 'on'){
+                document.getElementById('pagamento').innerHTML = 'Cartão de Crédito';
+            }
+            
         }
     }
         

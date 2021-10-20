@@ -51,21 +51,21 @@
                     <label class="tituloInput"  >Estado*</label>
                         <select required v-model="formValues.estados" placeholder="Selecione" class="form-control inputSelect" name="select1" id="select1">
                             <option disabled selected value="0">Selecione</option>
-                            <option value="1">Paraná</option>
-                            <option value="2">Rio Grande do Sul</option>
-                            <option value="3">Santa Catarina</option>
+                            <option value="Paraná">Paraná</option>
+                            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                            <option value="Santa Catarina">Santa Catarina</option>
                         </select>
                 </div>
                 <div class="col">
                     <label class="tituloInput" >Cidade*</label>
                         <select required v-model="formValues.cidades"  placeholder="Selecione" class="form-control inputSelect" name="select2" id="select2">
                             <option disabled selected value="0">Selecione</option>
-                            <option value="1">Londrina</option>
-                            <option value="1">Maringá</option>
-                            <option value="2">Pelotas</option>
-                            <option value="2">Porto Alegre</option>
-                            <option value="3">Florianópolis</option>
-                            <option value="3">Joinville</option>
+                            <option value="Londrina">Londrina</option>
+                            <option value="Maringá">Maringá</option>
+                            <option value="Pelotas">Pelotas</option>
+                            <option value="Porto Alegre">Porto Alegre</option>
+                            <option value="Florianópolis">Florianópolis</option>
+                            <option value="Joinville">Joinville</option>
                         </select>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                     <h6 class="contagem" >1 de 2</h6>
                 </div>
             </div>
-            <button type="submit" @click="SubmitForm" class="btn">PRÓXIMO</button>
+            <button type="submit" @click="save_data()" class="btn">PRÓXIMO</button>
         </form>
     <img src="../../assets/desktop-pagina-1.png" style="width:400px;height:400px;" class="rounded " >
     </div>
@@ -95,8 +95,7 @@
 </template>
 
 <script>
-
-    // console.log('cu');
+        
     // //Mascara de CPF
          document.addEventListener('keydown', function(event) { //pega o evento de precionar uma tecla
          if(event.keyCode != 46 && event.keyCode != 8){//verifica se a tecla precionada nao e um backspace e delete
@@ -150,12 +149,22 @@
                     return true;
                 }
             },
-            SubmitForm(){
-                var storeForm = localStorage.setItem('FormValores', JSON.stringify(this.formValues))
-                console.log('FormValores', JSON.stringify(this.formValues))
+            save_data() {
+                var inputNome = document.getElementById("name");
+                var inputCPF = document.getElementById("CPF");
+                var inputNumero = document.getElementById("phone");
+                var inputEstado = document.getElementById("select1");
+                var inputCidade = document.getElementById("select2");
+
+                localStorage.setItem("name", inputNome.value); 
+                localStorage.setItem("CPF", inputCPF.value);
+                localStorage.setItem("phone", inputNumero.value); 
+                localStorage.setItem("select1", inputEstado.value);
+                localStorage.setItem("select2", inputCidade.value);
+                
             }
         
-        },
+        }
         
         }
         
