@@ -1,5 +1,5 @@
 # facil_consulta_vue
-<h1 align="center">Facil Consulta</h1>
+<h1 align="center">Consulta</h1>
 
 ![](https://media.giphy.com/media/3OtcGVbyaovaoRJn21/giphy.gif)
 <h1 align="center">Realizado em VUE + Bootstrap</h1>
