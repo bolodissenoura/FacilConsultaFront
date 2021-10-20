@@ -18,14 +18,14 @@
                     <p class="tituloInput" id="consulta"></p>
                     <label class="tituloInput resultadoTitulo" for="name">Preço da consulta</label>
                     <p class="tituloInput" id="dinheiro"></p>
-                    <label class="tituloInput resultadoTitulo" for="name">Formas de pagamento da consulta</label>
-                    <p class="tituloInput" id="pagamento"></p>
+                    <!-- <label class="tituloInput resultadoTitulo" for="name">Formas de pagamento da consulta</label>
+                    <p class="tituloInput" id="pagamento"></p> -->
             </div>
 
-            <button type="submit" class="btn">CADASTRAR PROFISSIONAL</button><br/>
-            <a style="font-family: 'Comfortaa', cursive;color:#483698;" href="">Editar cadastro</a>
+            <a type="submit" class="buttonCadastro btn" href="https://bolodissenoura.github.io/daniellimae/">CADASTRAR PROFISSIONAL</a><br/>
+            <a style="font-family: 'Comfortaa', cursive;color:#483698;" @click="$router.push('/')" >Editar cadastro</a>
         </div>
-    <img src="../../assets/desktop-pagina-3.png" style="width:400px;height:400px;" class="rounded" >
+    <img src="../../assets/desktop-pagina-3.png" style="width:400px;height:400px;"  class="rounded" >
     </div>
        <!-- Container Branco Final-->
 </div>
@@ -116,7 +116,7 @@
     .formTotal{
         margin-left:4%;
     }
-    button{
+    .buttonCadastro{
         margin-bottom:30px;
         border-radius: 15px;
         width:400px;
@@ -193,7 +193,7 @@
             margin-top:-25px;
             font-size:20px;
         }
-        button{
+        .buttonCadastro{
             display:auto;
             border-radius: 30px;
             white-space: nowrap;
